@@ -1,0 +1,6 @@
+:5000 {
+
+    encode gzip
+    reverse_proxy / web:3000
+    reverse_proxy /api/v1/auth* auth:5001
+}

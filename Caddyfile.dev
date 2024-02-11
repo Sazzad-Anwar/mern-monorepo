@@ -1,0 +1,7 @@
+
+:5000 {
+
+    encode gzip
+    reverse_proxy / localhost:3000
+    reverse_proxy /api/v1/auth* localhost:5001
+}
