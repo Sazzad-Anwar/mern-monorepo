@@ -4,22 +4,24 @@
   "private": true,
   "workspaces": [
     "apps/*",
-    "packages/*"
+    "packages/*",
+    "apis/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "dotenv -e .env -- turbo run build",
     "clean": "turbo run clean",
     "caddy": "caddy run --config Caddyfile.dev",
-    "dev": "turbo run dev",
+    "dev": "dotenv -e .env.dev -- turbo run dev",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "lint": "turbo run lint",
-    "test": "turbo run test"
+    "test": "dotenv -e .env.test -- turbo run test"
   },
   "dependencies": {},
   "devDependencies": {
     "@repo/eslint-config": "*",
     "prettier": "^3.1.1",
-    "turbo": "latest"
+    "turbo": "latest",
+    "dotenv-cli": "latest"
   },
   "packageManager": "yarn@1.22.19",
   "engines": {
